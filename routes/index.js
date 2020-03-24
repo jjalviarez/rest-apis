@@ -2,13 +2,30 @@ const express = require('express');
 const route = express.Router();
 
 
+//Importar Controladores
+const clienteControler = require("../controllers/clienteControler");
+
+
+
 module.exports = () => {
     
 
-    //Ruta de home
-   route.get('/', (req,res,next) => { res.send("home") });
+    //POST Agregar cleinte 
+    route.post('/clientes', clienteControler.nuevoCliente)
 
     
-   return route;
 
+
+
+
+
+
+
+
+
+
+
+
+
+   return route;
 };
