@@ -15,3 +15,4 @@ mongoose.connection.on('error', (error) =>{
 //importar los modelos 
 require("../models/Clientes");
 require("../models/Productos");
+require("../models/Pedidos");
