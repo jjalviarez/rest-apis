@@ -12,8 +12,8 @@ require('dotenv').config({path: 'variables.env'});
 const bodyParser = require('body-parser');
 
 
-
-
+//Dependencia para que la API responda desde otros origenes
+const cors = require('cors');
 
 
 //crear un app en express
@@ -24,11 +24,11 @@ const app = express();
 
 
 //Se habilita el bodyParser para los req de datos
-app.use(bodyParser.urlencoded({extended: false }));
+app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
 
-
+app.use(cors());
 
 
 

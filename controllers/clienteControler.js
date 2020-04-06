@@ -15,7 +15,7 @@ exports.nuevoCliente = async (req,res,next) => {
         const cliente = await Cliente.create(req.body);
         return res.json(cliente);
     } catch (error) {
-        return res.json({mensaje: error});
+        return res.status(400).json({mensaje: error});
     }
     
 };
@@ -26,7 +26,7 @@ exports.allClientes = async (req,res,next) => {
         const clientes = await Cliente.find();
         return res.json(clientes);
     } catch (error) {
-        return res.json({mensaje: error});
+        return res.status(400).json({mensaje: error});
     }
     
 };
