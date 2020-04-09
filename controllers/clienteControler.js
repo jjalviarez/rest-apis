@@ -38,7 +38,7 @@ exports.oneCliente = async (req,res,next) => {
         if (!cliente) return res.json({mensaje: "No Encontrado"});
         return res.json(cliente);
     } catch (error) {
-        return res.json({mensaje: error});
+        return res.status(400).json({mensaje: error});
     }
     
 };
@@ -49,7 +49,7 @@ exports.deleteCliente = async (req,res,next) => {
         await Cliente.findByIdAndDelete(req.params.id);
         return res.status(200).json('Cliente Eminado Correctamenre');
     } catch (error) {
-        return res.json({mensaje: error});
+        return res.status(400).json({mensaje: error});
     }
     
 };
@@ -61,7 +61,7 @@ exports.updateCliente = async (req,res,next) => {
         if (!cliente) return res.json({mensaje: "No Encontrado"});
         return res.json(cliente);
     } catch (error) {
-        return res.json({mensaje: error});
+        return res.status(400).json({mensaje: error});
     }
     
 };
