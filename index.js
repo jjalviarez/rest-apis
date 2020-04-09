@@ -28,6 +28,11 @@ app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 
 
+//Carpeta de archivos estaticos
+// static files
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('uploads'));
+
 app.use(cors());
 
 
