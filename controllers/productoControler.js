@@ -98,7 +98,7 @@ exports.updateProducto = async (req,res,next) => {
         const producto = await Producto.findById(req.params.id);
         if (!producto) return res.json({mensaje: "No Encontrado"}); 
         Object.assign(producto,req.body);
-        
+        //console.log('req.file :', req.file);
         if(req.file) {
             var imagenAnterior = producto.imagen;
             producto.imagen= req.file.filename;
@@ -106,7 +106,7 @@ exports.updateProducto = async (req,res,next) => {
         await producto.save();
         //De existir un archivo anterior lo elimina
         if(imagenAnterior) {
-            imagenAnterior= __dirname + '../../uploads/' + imagenAnterior;
+            imagenAnterior= __dirname + '/../uploads/' + imagenAnterior;
             fs.unlink(imagenAnterior, (err) => {
                 if (err) console.log(err);
             });
