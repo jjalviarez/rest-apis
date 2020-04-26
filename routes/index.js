@@ -30,6 +30,8 @@ module.exports = () => {
     route.post('/productos', productoControler.subirArchivo,productoControler.nuevoProducto);
     //GET Mostrar Todo los productos 
     route.get('/productos', productoControler.allProductos);
+    //GET Buscar productos 
+    route.get('/productos/busqueda/:query', productoControler.buscarProductos);
     //GET Mostrar cliente 
     route.get('/productos/:id', productoControler.oneProducto);
     //DELETE Eliminar producto 

@@ -36,6 +36,16 @@ exports.allProductos = async (req,res,next) => {
     
 };
 
+exports.buscarProductos = async (req,res,next) => {
+    try {
+        const productos = await Producto.find({nombre : new RegExp(req.params.query, 'i')});
+        return res.json(productos);
+    } catch (error) {
+        return res.status(400).json({mensaje: error});
+    }
+    
+};
+
 
 exports.oneProducto = async (req,res,next) => {
     try {
