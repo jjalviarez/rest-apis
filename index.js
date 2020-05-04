@@ -33,7 +33,22 @@ app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('uploads'));
 
-app.use(cors());
+//Definit Dominio Para recibir las peticiones 
+const whiteLins = process.env.URL_FRONTEND.split(',');
+const corsOprions = {
+  origin: (origin, callback) => {
+    //Verificoa que sea de un servidor de la lista blanca 
+    const existe = whiteLins.some(dominio => dominio === origin);
+    if(existe)  {
+      callback(null, true);
+    }
+    else { 
+      callback(new Error('No Permitido'));
+    }
+  }
+}
+//Habilitar CORS
+app.use(cors(corsOprions));
 
 
 

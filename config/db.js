@@ -16,3 +16,4 @@ mongoose.connection.on('error', (error) =>{
 require("../models/Clientes");
 require("../models/Productos");
 require("../models/Pedidos");
+require("../models/Usuarios");
