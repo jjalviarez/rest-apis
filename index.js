@@ -43,7 +43,7 @@ const corsOprions = {
       callback(null, true);
     }
     else { 
-      callback(new Error('No Permitido'));
+      callback(new Error(`Dominio: ${origin} No Permitido`));
     }
   }
 }
